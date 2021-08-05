@@ -12,34 +12,44 @@ from .models import Cottage, Room
 def getRoutes(response):
     routes = [
         {
-            'Endpoint': '/rooms/',
+            'Endpoint': '/cottages/',
             'method': 'GET',
             'body': None,
-            'description': 'Returns a array of rooms cottages'
+            'description': 'Returns an array of all cottages'
         },
         {
-            'Endpoint': '/rooms/id',
+            'Endpoint': '/cottages/id',
             'method': 'GET',
             'body': None,
-            'description': 'Returns a single of room cottage'
+            'description': 'Returns a single cottage'
         },
         {
-            'Endpoint': '/rooms/add',
+            'Endpoint': '/cottages/add',
             'method': 'POST',
-            'body': {'body': ""},
+            'body': {
+                "name": "", 
+                "description": "", 
+                "bedrooms": "", 
+                "booked": ""
+                },
             'description': 'Adds a room'
         },
         {
             'Endpoint': '/rooms/id/update',
             'method': 'PUT',
-            'body': {'body': ""},
-            'description': 'Updates a rooms cottages'
+            'body': {
+                "name": "", 
+                "description": "", 
+                "bedrooms": "", 
+                "booked": ""
+                },
+            'description': 'Updates a cottages'
         },
         {
             'Endpoint': '/rooms/id/delete',
             'method': 'DELETE',
             'body': None,
-            'description': 'Deletes an existing rooms'
+            'description': 'Deletes an existing cotage'
         }
     ]
     return Response(routes)
