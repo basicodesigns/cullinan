@@ -2,10 +2,11 @@ from django.db import models
 
 
 class Cottage(models.Model):
-    name = models.TextField()
-    description = models.TextField()
+    name = models.TextField(null=True, blank=True, max_length=30)
+    description = models.TextField(null=True, blank=True, max_length=255)
     bedrooms = models.IntegerField()
     booked = models.BooleanField()
+    cost = models.DecimalField(max_digits=6,decimal_places=2)
 
     def __str__(self):
         return self.name
@@ -14,8 +15,8 @@ class Cottage(models.Model):
 
 class CottageImages(models.Model):
     cottage = models.ForeignKey(Cottage, on_delete=models.CASCADE)
-    title = models.TextField()
-    description = models.TextField()
+    title = models.TextField(null=True, blank=True, max_length=30)
+    description = models.TextField(null=True, blank=True, max_length=255)
     image = models.ImageField()
 
     def __str__(self):
